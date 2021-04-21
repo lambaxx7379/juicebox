@@ -12,14 +12,14 @@ const {
     createPostTag,
     addTagsToPost,
     getPostById,
-    getPostsByTagName
+    getPostsByTagName,
+    getAllTags
   } = require('./index');
   
   async function dropTables() {
     try {
       console.log("Starting to drop tables...");
   
-      // have to make sure to drop in correct order
       await client.query(`
         DROP TABLE IF EXISTS post_tags;
         DROP TABLE IF EXISTS tags;
@@ -134,8 +134,6 @@ const {
     }
   }
   
-
-
   async function rebuildDB() {
     try {
       client.connect();
