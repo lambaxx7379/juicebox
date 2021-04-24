@@ -12,6 +12,8 @@ server.use(bodyParser.json());
 const morgan = require('morgan');
 server.use(morgan('dev'));
 
+server.use(express.static('public'));
+
 const apiRouter = require('./api');
 server.use('/api', apiRouter);
 
